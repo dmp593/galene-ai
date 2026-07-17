@@ -1,0 +1,2530 @@
+[
+ {
+  "namespace": "health",
+  "method": "GET",
+  "path": "/readiness",
+  "operationId": "readiness_readiness_get",
+  "summary": "Application Readiness Check",
+  "tag": "Health Checks"
+ },
+ {
+  "namespace": "health",
+  "method": "GET",
+  "path": "/liveness",
+  "operationId": "liveness_liveness_get",
+  "summary": "Application Liveness Check",
+  "tag": "Health Checks"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/signup",
+  "operationId": "_signup_signup_post",
+  "summary": "Create New User Account",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "users",
+  "method": "DELETE",
+  "path": "/user/{user_id}/delete",
+  "operationId": "_user_disable_user__user_id__delete_delete",
+  "summary": "Disable User Account",
+  "tag": "User"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/login",
+  "operationId": "_login_login_post",
+  "summary": "User Authentication",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/logout",
+  "operationId": "_logout_logout_post",
+  "summary": "User Logout",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/refresh-token",
+  "operationId": "_refresh_token_refresh_token_post",
+  "summary": "Refresh Authentication Token",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/reset-password",
+  "operationId": "_reset_password_reset_password_post",
+  "summary": "Reset User Password",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/auth/sso/{org_uuid}",
+  "operationId": "_sso_auth_sso__org_uuid__post",
+  "summary": "Single Sign-On Authentication",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "auth",
+  "method": "GET",
+  "path": "/auth/sso/{org_uuid}/config",
+  "operationId": "_get_sso_config_auth_sso__org_uuid__config_get",
+  "summary": "Get SSO configuration for organization",
+  "tag": "Authentication"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "GET",
+  "path": "/auth/config/api-key",
+  "operationId": "_get_api_keys_auth_config_api_key_get",
+  "summary": "List User API Keys",
+  "tag": "Api-Keys"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "POST",
+  "path": "/auth/config/api-key",
+  "operationId": "_create_api_key_auth_config_api_key_post",
+  "summary": "Create New API Key",
+  "tag": "Api-Keys"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "DELETE",
+  "path": "/auth/config/api-key",
+  "operationId": "_delete_api_key_auth_config_api_key_delete",
+  "summary": "Delete API Key",
+  "tag": "Api-Keys"
+ },
+ {
+  "namespace": "users",
+  "method": "GET",
+  "path": "/user/profile",
+  "operationId": "_get_user_profile_user_profile_get",
+  "summary": "Get User Profile",
+  "tag": "User"
+ },
+ {
+  "namespace": "users",
+  "method": "POST",
+  "path": "/user/profile",
+  "operationId": "_edit_user_profile_user_profile_post",
+  "summary": "Update User Profile",
+  "tag": "User"
+ },
+ {
+  "namespace": "users",
+  "method": "POST",
+  "path": "/user/search",
+  "operationId": "_search_user_by_email_user_search_post",
+  "summary": "Search Users by Email",
+  "tag": "User"
+ },
+ {
+  "namespace": "users",
+  "method": "GET",
+  "path": "/user/{user_uuid}",
+  "operationId": "_get_user_by_uuid_user__user_uuid__get",
+  "summary": "Get User by UUID",
+  "tag": "User"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversations",
+  "operationId": "_list_conversations_get",
+  "summary": "List User Conversations",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/init",
+  "operationId": "_init_conversation_init_get",
+  "summary": "Initialize New Conversation",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}",
+  "operationId": "_get_conversation__conversation_id__get",
+  "summary": "Get Conversation Details",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "PATCH",
+  "path": "/conversation/{conversation_id}",
+  "operationId": "_update_conversation__conversation_id__patch",
+  "summary": "Update Conversation Settings",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "DELETE",
+  "path": "/conversation/{conversation_id}",
+  "operationId": "_delete_conversation__conversation_id__delete",
+  "summary": "Delete Conversation",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}/attachments",
+  "operationId": "_attachments_conversation__conversation_id__attachments_get",
+  "summary": "Get Conversation Attachments",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}/message/{index}/add_references",
+  "operationId": "_reference_conversation__conversation_id__message__index__add_references_get",
+  "summary": "Add References to Message",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "DELETE",
+  "path": "/conversation/{conversation_id}/message/{message_id}",
+  "operationId": "_delete_message_conversation__conversation_id__message__message_id__delete",
+  "summary": "Delete Message",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}/message/{message_id}/sanitize",
+  "operationId": "_sanitize_message_conversation__conversation_id__message__message_id__sanitize_get",
+  "summary": "Sanitize Message Content",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "conversations",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}/sql-results/{result_id}",
+  "operationId": "_get_sql_results_conversation__conversation_id__sql_results__result_id__get",
+  "summary": "Get SQL / Data Analysis Results",
+  "tag": "Conversations"
+ },
+ {
+  "namespace": "responses",
+  "method": "POST",
+  "path": "/{mode}/v1/responses",
+  "operationId": "_mode_responses__mode__v1_responses_post",
+  "summary": "Generate responses with mode (shield/direct)",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "responses",
+  "method": "POST",
+  "path": "/v1/responses",
+  "operationId": "_responses_v1_responses_post",
+  "summary": "Generate direct responses",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "audio",
+  "method": "GET",
+  "path": "/v1/audio/voices",
+  "operationId": "_audio_voices_v1_audio_voices_get",
+  "summary": "List available TTS voices",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "audio",
+  "method": "POST",
+  "path": "/v1/audio/speech",
+  "operationId": "_create_speech_v1_audio_speech_post",
+  "summary": "Generate speech from text",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "audio",
+  "method": "POST",
+  "path": "/v1/audio/transcriptions",
+  "operationId": "_create_transcription_v1_audio_transcriptions_post",
+  "summary": "Transcribe audio to text",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "audio",
+  "method": "POST",
+  "path": "/v1/audio/translations",
+  "operationId": "_create_translation_v1_audio_translations_post",
+  "summary": "Translate audio to English text",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "POST",
+  "path": "/v1/vector_stores",
+  "operationId": "_create_vector_store_v1_vector_stores_post",
+  "summary": "Create a vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "GET",
+  "path": "/v1/vector_stores",
+  "operationId": "_list_vector_stores_v1_vector_stores_get",
+  "summary": "List vector stores",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "GET",
+  "path": "/v1/vector_stores/{vector_store_id}",
+  "operationId": "_get_vector_store_v1_vector_stores__vector_store_id__get",
+  "summary": "Retrieve a vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "POST",
+  "path": "/v1/vector_stores/{vector_store_id}",
+  "operationId": "_update_vector_store_v1_vector_stores__vector_store_id__post",
+  "summary": "Update a vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "DELETE",
+  "path": "/v1/vector_stores/{vector_store_id}",
+  "operationId": "_delete_vector_store_v1_vector_stores__vector_store_id__delete",
+  "summary": "Delete a vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "POST",
+  "path": "/v1/vector_stores/{vector_store_id}/files",
+  "operationId": "_add_file_to_vector_store_v1_vector_stores__vector_store_id__files_post",
+  "summary": "Add file to vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "GET",
+  "path": "/v1/vector_stores/{vector_store_id}/files",
+  "operationId": "_list_vector_store_files_v1_vector_stores__vector_store_id__files_get",
+  "summary": "List vector store files",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "DELETE",
+  "path": "/v1/vector_stores/{vector_store_id}/files/{file_id}",
+  "operationId": "_delete_vector_store_file_v1_vector_stores__vector_store_id__files__file_id__delete",
+  "summary": "Delete vector store file",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "GET",
+  "path": "/v1/vector_stores/{vector_store_id}/files/{file_id}",
+  "operationId": "_get_vector_store_file_v1_vector_stores__vector_store_id__files__file_id__get",
+  "summary": "Retrieve a vector store file",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "POST",
+  "path": "/v1/vector_stores/{vector_store_id}/file_batches",
+  "operationId": "_create_vector_store_file_batch_v1_vector_stores__vector_store_id__file_batches_post",
+  "summary": "Create vector store file batch",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "vector_stores",
+  "method": "POST",
+  "path": "/v1/vector_stores/{vector_store_id}/search",
+  "operationId": "_search_vector_store_v1_vector_stores__vector_store_id__search_post",
+  "summary": "Search in vector store",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "POST",
+  "path": "/v1/files",
+  "operationId": "_upload_file_v1_files_post",
+  "summary": "Upload a file",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "GET",
+  "path": "/v1/files",
+  "operationId": "_list_files_v1_files_get",
+  "summary": "List files",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "GET",
+  "path": "/v1/files/{file_id}",
+  "operationId": "_retrieve_file_v1_files__file_id__get",
+  "summary": "Retrieve file metadata",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "DELETE",
+  "path": "/v1/files/{file_id}",
+  "operationId": "_delete_file_v1_files__file_id__delete",
+  "summary": "Delete a file",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "POST",
+  "path": "/v1/files/{file_id}/retry",
+  "operationId": "_retry_file_v1_files__file_id__retry_post",
+  "summary": "Retry file ingestion",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "files",
+  "method": "GET",
+  "path": "/v1/files/{file_id}/content",
+  "operationId": "_retrieve_file_content_v1_files__file_id__content_get",
+  "summary": "Download file content",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "models",
+  "method": "GET",
+  "path": "/{mode}/v1/models",
+  "operationId": "_mode_models__mode__v1_models_get",
+  "summary": "List available models with mode",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "models",
+  "method": "GET",
+  "path": "/v1/models",
+  "operationId": "_models_v1_models_get",
+  "summary": "List available models",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "embeddings",
+  "method": "POST",
+  "path": "/{mode}/v1/embeddings",
+  "operationId": "_mode_embeddings__mode__v1_embeddings_post",
+  "summary": "Create embeddings (with mode prefix)",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "embeddings",
+  "method": "POST",
+  "path": "/v1/embeddings",
+  "operationId": "_embeddings_v1_embeddings_post",
+  "summary": "Create embeddings",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "chat",
+  "method": "POST",
+  "path": "/{mode}/v1/chat/completions",
+  "operationId": "_mode_completions__mode__v1_chat_completions_post",
+  "summary": "Generate chat completions with different modes",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "chat",
+  "method": "POST",
+  "path": "/v1/chat/completions",
+  "operationId": "_completions_v1_chat_completions_post",
+  "summary": "Generate direct chat completions",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "moderations",
+  "method": "POST",
+  "path": "/v1/moderations",
+  "operationId": "_moderations_v1_moderations_post",
+  "summary": "Use Generative Shield standalone",
+  "tag": "OpenAI API"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/conversation/{conversation_id}/attachment/chunk/{chunk_id}",
+  "operationId": "_get_chunk_in_conversation_conversation__conversation_id__attachment_chunk__chunk_id__get",
+  "summary": "Get attachment chunk within conversation context (SECURE)",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/chunk/{chunk_id}",
+  "operationId": "_get_chunk_attachment_chunk__chunk_id__get",
+  "summary": "Get attachment chunk",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/attach/conversation/{conversation_id}",
+  "operationId": "_attach_to_conversation_attachment__file_id__attach_conversation__conversation_id__get",
+  "summary": "Attach file to conversation",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/detach/conversation/{conversation_id}",
+  "operationId": "_detach_from_conversation_attachment__file_id__detach_conversation__conversation_id__get",
+  "summary": "Detach file from conversation",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "DELETE",
+  "path": "/attachment/{file_id}/detach/conversation/{conversation_id}",
+  "operationId": "_detach_from_conversation_delete_attachment__file_id__detach_conversation__conversation_id__delete",
+  "summary": "Detach file from conversation (DELETE)",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/status/enable",
+  "operationId": "_enable_attachment__file_id__status_enable_get",
+  "summary": "Enable attachment",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/status/disable",
+  "operationId": "_disable_attachment__file_id__status_disable_get",
+  "summary": "Disable attachment",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/presignedurl",
+  "operationId": "_presigned_attachment__file_id__presignedurl_get",
+  "summary": "Get presigned download URL",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "GET",
+  "path": "/attachment/{file_id}/transcription",
+  "operationId": "_download_media_transcription_attachment__file_id__transcription_get",
+  "summary": "Download media transcription",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "attachments",
+  "method": "POST",
+  "path": "/attachment/{file_id}/retry",
+  "operationId": "_retry_attachment_attachment__file_id__retry_post",
+  "summary": "Retry attachment ingestion",
+  "tag": "Attachments"
+ },
+ {
+  "namespace": "notifications",
+  "method": "GET",
+  "path": "/notification/{notification_id}/delivered",
+  "operationId": "_delivered_notification__notification_id__delivered_get",
+  "summary": "Mark Notification as Delivered",
+  "tag": "Notifications"
+ },
+ {
+  "namespace": "changelog",
+  "method": "GET",
+  "path": "/changelog",
+  "operationId": "_changelog_changelog_get",
+  "summary": "Get Application Changelog",
+  "tag": "Changelog"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents",
+  "operationId": "_list_agents_get",
+  "summary": "List user agents",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agent/{agent_id}",
+  "operationId": "_detail_agent__agent_id__get",
+  "summary": "Get agent details",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/{agent_id}",
+  "operationId": "_delete_agent_agent__agent_id__delete",
+  "summary": "Delete agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/{agent_id}/pin",
+  "operationId": "_set_agent_pin_agent__agent_id__pin_post",
+  "summary": "Pin or unpin an agent for the current user",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/{agent_type}",
+  "operationId": "_upsert_agent_agent__agent_type__post",
+  "summary": "Create or update agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/share/{agent_id}/organization/{organization_id}",
+  "operationId": "_share_agent_with_organization_agent_share__agent_id__organization__organization_id__post",
+  "summary": "Share agent with organization",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/files",
+  "operationId": "_personal_upload_file_agent_personal__agent_id__files_post",
+  "summary": "Upload file to personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/files",
+  "operationId": "_batch_delete_files_agent_personal__agent_id__files_delete",
+  "summary": "Delete multiple personal agent files",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/file/{file_id}",
+  "operationId": "_del_file_agent_personal__agent_id__file__file_id__delete",
+  "summary": "Delete file from personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/file/{file_id}/retry",
+  "operationId": "_retry_file_agent_personal__agent_id__file__file_id__retry_post",
+  "summary": "Retry file ingestion for personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/urls",
+  "operationId": "_personal_add_urls_agent_personal__agent_id__urls_post",
+  "summary": "Add URLs to personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/all_files",
+  "operationId": "_delete_all_files_agent_personal__agent_id__all_files_delete",
+  "summary": "Delete all personal agent files",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/get_sitemap",
+  "operationId": "_get_sitemap_agent_personal_get_sitemap_post",
+  "summary": "Discover a website's sitemap URLs",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/scrape_website",
+  "operationId": "_scrape_website_agent_personal__agent_id__scrape_website_post",
+  "summary": "Scrape website for personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/scrape_website_documents",
+  "operationId": "_scrape_website_documents_agent_personal__agent_id__scrape_website_documents_post",
+  "summary": "Discover website documents for personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/documents",
+  "operationId": "_ingest_website_documents_agent_personal__agent_id__documents_post",
+  "summary": "Ingest discovered website documents for personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/url/{file_id}",
+  "operationId": "_del_url_agent_personal__agent_id__url__file_id__delete",
+  "summary": "Delete URL content from personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/url/{file_id}/retry",
+  "operationId": "_retry_url_agent_personal__agent_id__url__file_id__retry_post",
+  "summary": "Retry URL ingestion for personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/mcp_servers",
+  "operationId": "_add_mcp_server_agent_personal__agent_id__mcp_servers_post",
+  "summary": "Add MCP server to personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/mcp_servers",
+  "operationId": "_get_user_available_mcp_servers_agents_mcp_servers_get",
+  "summary": "List available MCP servers",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/mcp_servers/{server_id}",
+  "operationId": "_get_user_mcp_server_agents_mcp_servers__server_id__get",
+  "summary": "Get MCP server details",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/mcp_resources/ingest",
+  "operationId": "_ingest_mcp_resources_agent_personal__agent_id__mcp_resources_ingest_post",
+  "summary": "Ingest MCP direct resources into a conversation",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/mcp_prompts",
+  "operationId": "_get_mcp_prompt_agent_personal__agent_id__mcp_prompts_post",
+  "summary": "Fetch an MCP prompt for a conversation",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/mcp_servers/{server_id}",
+  "operationId": "_delete_mcp_server_agent_personal__agent_id__mcp_servers__server_id__delete",
+  "summary": "Remove MCP server from agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "PUT",
+  "path": "/agent/personal/{agent_id}/mcp_servers/{server_id}",
+  "operationId": "_update_personal_mcp_server_agent_personal__agent_id__mcp_servers__server_id__put",
+  "summary": "Update MCP server for agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/database_connectors",
+  "operationId": "_add_database_connector_agent_personal__agent_id__database_connectors_post",
+  "summary": "Add database connector to personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agent/personal/{agent_id}/database_connectors",
+  "operationId": "_get_agent_database_connectors_agent_personal__agent_id__database_connectors_get",
+  "summary": "List agent's database connectors",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/database_connectors",
+  "operationId": "_get_user_available_database_connectors_agents_database_connectors_get",
+  "summary": "List available database connectors",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/database_connectors/{connector_id}",
+  "operationId": "_get_user_database_connector_agents_database_connectors__connector_id__get",
+  "summary": "Get database connector details",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/database_connectors/{connector_id}",
+  "operationId": "_delete_database_connector_agent_personal__agent_id__database_connectors__connector_id__delete",
+  "summary": "Remove database connector from agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "PUT",
+  "path": "/agent/personal/{agent_id}/database_connectors/{connector_id}",
+  "operationId": "_update_personal_database_connector_agent_personal__agent_id__database_connectors__connector_id__put",
+  "summary": "Update database connector for agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/personal/{agent_id}/kb_connectors",
+  "operationId": "_add_kb_connector_agent_personal__agent_id__kb_connectors_post",
+  "summary": "Add knowledge base connector to personal agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agent/personal/{agent_id}/kb_connectors",
+  "operationId": "_get_agent_kb_connectors_agent_personal__agent_id__kb_connectors_get",
+  "summary": "List agent's knowledge base connectors",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/kb_connectors",
+  "operationId": "_get_user_available_kb_connectors_agents_kb_connectors_get",
+  "summary": "List available knowledge base connectors",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/kb_connectors/{connector_id}",
+  "operationId": "_get_user_kb_connector_agents_kb_connectors__connector_id__get",
+  "summary": "Get knowledge base connector details",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "DELETE",
+  "path": "/agent/personal/{agent_id}/kb_connectors/{connector_id}",
+  "operationId": "_delete_kb_connector_agent_personal__agent_id__kb_connectors__connector_id__delete",
+  "summary": "Remove knowledge base connector from agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "PUT",
+  "path": "/agent/personal/{agent_id}/kb_connectors/{connector_id}",
+  "operationId": "_update_personal_kb_connector_agent_personal__agent_id__kb_connectors__connector_id__put",
+  "summary": "Update knowledge base connector for agent",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agent/{agent_id}/permissions",
+  "operationId": "_get_agent_permissions_agent__agent_id__permissions_get",
+  "summary": "Get agent permissions",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/{agent_id}/permissions",
+  "operationId": "_set_agent_permissions_agent__agent_id__permissions_post",
+  "summary": "Set agent permissions",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/invitations",
+  "operationId": "_get_pending_agent_invitations_agents_invitations_get",
+  "summary": "Get pending agent invitations",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/{agent_id}/approve",
+  "operationId": "_accept_agent_invitation_agents__agent_id__approve_get",
+  "summary": "Accept agent invitation",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/{agent_id}/deny",
+  "operationId": "_deny_agent_invitation_agents__agent_id__deny_get",
+  "summary": "Deny agent invitation",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agent/share/{agent_id}/user_id/{user_id}",
+  "operationId": "_share_agent_with_user_agent_share__agent_id__user_id__user_id__post",
+  "summary": "Share agent with specific user",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "POST",
+  "path": "/agents/personal/from_catalog/{catalog_id}",
+  "operationId": "_create_agent_from_catalog_agents_personal_from_catalog__catalog_id__post",
+  "summary": "Create agent from catalog template",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/agents/personal/catalog/{catalog_id}",
+  "operationId": "_get_catalog_template_agents_personal_catalog__catalog_id__get",
+  "summary": "Get catalog template details",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers",
+  "operationId": "create_mcp_server_admin_organizations__organization_uuid__mcp_servers_post",
+  "summary": "Create an MCP Server for an Organization",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers",
+  "operationId": "list_mcp_servers_admin_organizations__organization_uuid__mcp_servers_get",
+  "summary": "List MCP Servers for an Organization",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers/{server_uuid}",
+  "operationId": "get_mcp_server_admin_organizations__organization_uuid__mcp_servers__server_uuid__get",
+  "summary": "Get a Specific MCP Server for an Organization",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers/{server_uuid}",
+  "operationId": "update_mcp_server_admin_organizations__organization_uuid__mcp_servers__server_uuid__put",
+  "summary": "Update an MCP Server for an Organization",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers/{server_uuid}",
+  "operationId": "delete_mcp_server_admin_organizations__organization_uuid__mcp_servers__server_uuid__delete",
+  "summary": "Delete an MCP Server for an Organization",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers/{server_uuid}/test-connection",
+  "operationId": "test_mcp_server_connection_admin_organizations__organization_uuid__mcp_servers__server_uuid__test_connection_post",
+  "summary": "Test MCP Server Connection",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/mcp-servers/{server_uuid}/active-items",
+  "operationId": "update_mcp_server_active_items_admin_organizations__organization_uuid__mcp_servers__server_uuid__active_items_put",
+  "summary": "Update Active MCP Tools and Resources",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors",
+  "operationId": "create_db_connector_admin_organizations__organization_uuid__db_connectors_post",
+  "summary": "Create a Database Connector for an Organization",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors",
+  "operationId": "list_db_connectors_admin_organizations__organization_uuid__db_connectors_get",
+  "summary": "List Database Connectors for an Organization",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}",
+  "operationId": "get_db_connector_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__get",
+  "summary": "Get a Specific Database Connector for an Organization",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}",
+  "operationId": "update_db_connector_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__put",
+  "summary": "Update a Database Connector for an Organization",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}",
+  "operationId": "delete_db_connector_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__delete",
+  "summary": "Delete a Database Connector for an Organization",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}/discover",
+  "operationId": "trigger_database_discovery_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__discover_post",
+  "summary": "Trigger Database Discovery for a Connector",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}/properties",
+  "operationId": "update_database_properties_batch_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__properties_put",
+  "summary": "Update Multiple Table and Column Properties in Database Connector",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}/test-connection",
+  "operationId": "test_database_connection_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__test_connection_post",
+  "summary": "Test Database Connection",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}/tables-config",
+  "operationId": "download_tables_configuration_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__tables_config_get",
+  "summary": "Download Database Tables Configuration as JSON File",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/db-connectors/{db_connector_uuid}/tables-config",
+  "operationId": "upload_tables_configuration_admin_organizations__organization_uuid__db_connectors__db_connector_uuid__tables_config_post",
+  "summary": "Upload Database Tables Configuration from JSON File",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors",
+  "operationId": "create_kb_connector_admin_organizations__organization_uuid__kb_connectors_post",
+  "summary": "Create a KB Connector for an Organization",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors",
+  "operationId": "list_kb_connectors_admin_organizations__organization_uuid__kb_connectors_get",
+  "summary": "List KB Connectors for an Organization",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}",
+  "operationId": "get_kb_connector_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__get",
+  "summary": "Get a Specific KB Connector for an Organization",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}",
+  "operationId": "update_kb_connector_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__put",
+  "summary": "Update a KB Connector for an Organization",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}",
+  "operationId": "delete_kb_connector_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__delete",
+  "summary": "Delete a KB Connector for an Organization",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}/discovery-cache",
+  "operationId": "get_kb_connector_discovery_cache_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__discovery_cache_get",
+  "summary": "Get cached full discovery for a KB Connector",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}/drives",
+  "operationId": "list_kb_connector_drives_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__drives_get",
+  "summary": "List available document libraries (drives) for a SharePoint KB Connector",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}/browse",
+  "operationId": "browse_kb_connector_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__browse_get",
+  "summary": "Browse folder contents of a SharePoint document library",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}/scoped-discovery-preview",
+  "operationId": "scoped_discovery_preview_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__scoped_discovery_preview_post",
+  "summary": "Preview files that would be discovered from the given paths",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-connectors/{kb_connector_uuid}/test",
+  "operationId": "test_kb_connector_admin_organizations__organization_uuid__kb_connectors__kb_connector_uuid__test_post",
+  "summary": "Test KB Connector Connection",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync",
+  "operationId": "create_kb_sync_configuration_admin_organizations__organization_uuid__kb_sync_post",
+  "summary": "Create Kb Sync Configuration",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync",
+  "operationId": "list_kb_sync_configurations_admin_organizations__organization_uuid__kb_sync_get",
+  "summary": "List Kb Sync Configurations",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/start",
+  "operationId": "start_kb_sync_admin_organizations__organization_uuid__kb_sync__sync_config_id__start_post",
+  "summary": "Start Kb Sync",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}",
+  "operationId": "get_kb_sync_configuration_admin_organizations__organization_uuid__kb_sync__sync_config_id__get",
+  "summary": "Get Kb Sync Configuration",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}",
+  "operationId": "update_kb_sync_configuration_admin_organizations__organization_uuid__kb_sync__sync_config_id__put",
+  "summary": "Update Kb Sync Configuration",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}",
+  "operationId": "delete_kb_sync_configuration_admin_organizations__organization_uuid__kb_sync__sync_config_id__delete",
+  "summary": "Delete Kb Sync Configuration",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/status",
+  "operationId": "get_kb_sync_status_admin_organizations__organization_uuid__kb_sync__sync_config_id__status_get",
+  "summary": "Get Kb Sync Status",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/files",
+  "operationId": "list_kb_sync_files_admin_organizations__organization_uuid__kb_sync__sync_config_id__files_get",
+  "summary": "List Kb Sync Files",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/files/{file_log_id}/retry",
+  "operationId": "retry_kb_sync_file_admin_organizations__organization_uuid__kb_sync__sync_config_id__files__file_log_id__retry_post",
+  "summary": "Retry Kb Sync File",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/failed-files/retry",
+  "operationId": "retry_failed_kb_sync_files_admin_organizations__organization_uuid__kb_sync__sync_config_id__failed_files_retry_post",
+  "summary": "Retry Failed Kb Sync Files",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/files/{file_log_id}",
+  "operationId": "delete_kb_sync_file_admin_organizations__organization_uuid__kb_sync__sync_config_id__files__file_log_id__delete",
+  "summary": "Delete Kb Sync File",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "kb_sync",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/kb-sync/{sync_config_id}/files/delete",
+  "operationId": "delete_selected_kb_sync_files_admin_organizations__organization_uuid__kb_sync__sync_config_id__files_delete_post",
+  "summary": "Delete Selected Kb Sync Files",
+  "tag": "KB Sync"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/admin/support-tickets/",
+  "operationId": "list_organization_tickets_admin_admin_support_tickets__get",
+  "summary": "List organization support tickets (Admin)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "POST",
+  "path": "/admin/support-tickets/",
+  "operationId": "create_support_ticket_admin_admin_support_tickets__post",
+  "summary": "Create support ticket in Zammad (Admin)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/admin/support-tickets/{platform_ticket_uuid}",
+  "operationId": "get_support_ticket_detail_admin_admin_support_tickets__platform_ticket_uuid__get",
+  "summary": "Get support ticket details (Admin)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "POST",
+  "path": "/admin/support-tickets/{platform_ticket_uuid}/answer",
+  "operationId": "reply_to_support_ticket_admin_admin_support_tickets__platform_ticket_uuid__answer_post",
+  "summary": "Reply to support ticket (Admin)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "POST",
+  "path": "/admin/support-tickets/escalate/{platform_ticket_uuid}",
+  "operationId": "escalate_platform_ticket_to_zammad_endpoint_admin_support_tickets_escalate__platform_ticket_uuid__post",
+  "summary": "Escalate platform ticket to Zammad (Admin)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/admin/support-tickets/{support_ticket_uuid}/attachments/{attachment_uuid}",
+  "operationId": "download_support_ticket_attachment_admin_support_tickets__support_ticket_uuid__attachments__attachment_uuid__get",
+  "summary": "Download a support ticket attachment (fast path)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/admin/support-tickets/{support_ticket_uuid}/articles/{article_id}/zammad-attachments/{zammad_attachment_id}",
+  "operationId": "download_zammad_attachment_lazy_admin_support_tickets__support_ticket_uuid__articles__article_id__zammad_attachments__zammad_attachment_id__get",
+  "summary": "Download a Zammad-hosted attachment (lazy cache)",
+  "tag": "Support Tickets (Zammad)"
+ },
+ {
+  "namespace": "tts",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/tts-language-samples",
+  "operationId": "list_tts_language_samples_admin_organizations__organization_uuid__tts_language_samples_get",
+  "summary": "List TTS language reference samples for an organization",
+  "tag": "TTS Language Samples"
+ },
+ {
+  "namespace": "tts",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/tts-language-samples/{language_code}",
+  "operationId": "upload_tts_language_sample_admin_organizations__organization_uuid__tts_language_samples__language_code__post",
+  "summary": "Upload or replace organization TTS language sample",
+  "tag": "TTS Language Samples"
+ },
+ {
+  "namespace": "tts",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/tts-language-samples/{language_code}",
+  "operationId": "delete_tts_language_sample_admin_organizations__organization_uuid__tts_language_samples__language_code__delete",
+  "summary": "Delete organization TTS language sample",
+  "tag": "TTS Language Samples"
+ },
+ {
+  "namespace": "tts",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/tts-language-samples/{language_code}/transcribe",
+  "operationId": "transcribe_tts_language_sample_admin_organizations__organization_uuid__tts_language_samples__language_code__transcribe_post",
+  "summary": "Transcribe organization language sample",
+  "tag": "TTS Language Samples"
+ },
+ {
+  "namespace": "tts",
+  "method": "PATCH",
+  "path": "/admin/organizations/{organization_uuid}/tts-language-samples/{language_code}/ref-text",
+  "operationId": "update_tts_language_sample_ref_text_admin_organizations__organization_uuid__tts_language_samples__language_code__ref_text_patch",
+  "summary": "Update organization language sample ref_text",
+  "tag": "TTS Language Samples"
+ },
+ {
+  "namespace": "admin.search",
+  "method": "GET",
+  "path": "/admin/search/users",
+  "operationId": "_search_users_admin_search_users_get",
+  "summary": "Search users across all organizations (Superadmin)",
+  "tag": "Admin - Search"
+ },
+ {
+  "namespace": "groups",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/available-groups",
+  "operationId": "get_available_groups_admin_organizations__organization_uuid__sso_connectors__connector_uuid__available_groups_get",
+  "summary": "List groups available for import on the IdP side",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "groups",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/imported-groups",
+  "operationId": "get_imported_groups_admin_organizations__organization_uuid__sso_connectors__connector_uuid__imported_groups_get",
+  "summary": "List imported groups (DB-only view)",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "groups",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/imported-groups",
+  "operationId": "update_imported_groups_admin_organizations__organization_uuid__sso_connectors__connector_uuid__imported_groups_put",
+  "summary": "Reconcile the imported-groups list (declarative)",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "groups",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/resync",
+  "operationId": "resync_organization_admin_organizations__organization_uuid__sso_connectors__connector_uuid__resync_post",
+  "summary": "Resync every SSO user in the organization",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "groups",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/consent-status",
+  "operationId": "get_consent_status_admin_organizations__organization_uuid__sso_connectors__connector_uuid__consent_status_get",
+  "summary": "Probe Microsoft Graph admin consent for this connector",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "groups",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}/admin-consent-url",
+  "operationId": "get_admin_consent_url_admin_organizations__organization_uuid__sso_connectors__connector_uuid__admin_consent_url_get",
+  "summary": "Generate a Microsoft adminconsent URL with HMAC-signed state",
+  "tag": "Groups"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/smtp/test",
+  "operationId": "test_smtp_connection_admin_settings_smtp_test_post",
+  "summary": "Test SMTP Connection (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/smtp",
+  "operationId": "retrieve_global_smtp_settings_admin_settings_smtp_get",
+  "summary": "Get Global SMTP Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/smtp",
+  "operationId": "set_global_smtp_settings_admin_settings_smtp_post",
+  "summary": "Set Global SMTP Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/domain",
+  "operationId": "retrieve_global_domain_settings_admin_settings_domain_get",
+  "summary": "Get Global Domain Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/domain",
+  "operationId": "set_global_domain_settings_admin_settings_domain_post",
+  "summary": "Set Global Domain Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/platform_updates",
+  "operationId": "retrieve_platform_update_settings_admin_settings_platform_updates_get",
+  "summary": "Get Platform Update Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/platform_updates",
+  "operationId": "set_platform_update_settings_admin_settings_platform_updates_post",
+  "summary": "Set Platform Update Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/platform_updates/manual-window",
+  "operationId": "request_platform_manual_window_admin_settings_platform_updates_manual_window_post",
+  "summary": "Request One-Time Platform Update Window (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/platform_updates/pending-updates",
+  "operationId": "retrieve_pending_platform_updates_admin_settings_platform_updates_pending_updates_get",
+  "summary": "Get Pending Platform Updates (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/application_maintenance_window",
+  "operationId": "retrieve_global_app_maintenance_window_settings_admin_settings_application_maintenance_window_get",
+  "summary": "Get Global Application Maintenance Window Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/application_maintenance_window",
+  "operationId": "set_global_app_maintenance_window_settings_admin_settings_application_maintenance_window_post",
+  "summary": "Set Global Application Maintenance Window Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/infrastructure_update_window",
+  "operationId": "retrieve_global_infra_update_window_settings_admin_settings_infrastructure_update_window_get",
+  "summary": "Get Global Infrastructure Update Window Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/infrastructure_update_window",
+  "operationId": "set_global_infra_update_window_settings_admin_settings_infrastructure_update_window_post",
+  "summary": "Set Global Infrastructure Update Window Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/backup_destination",
+  "operationId": "retrieve_global_backup_destination_settings_admin_settings_backup_destination_get",
+  "summary": "Get Global Backup Destination Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_destination",
+  "operationId": "set_global_backup_destination_settings_admin_settings_backup_destination_post",
+  "summary": "Set Global Backup Destination Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/backup_schedule",
+  "operationId": "retrieve_global_backup_schedule_settings_admin_settings_backup_schedule_get",
+  "summary": "Get Global Backup Schedule Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_schedule",
+  "operationId": "set_global_backup_schedule_settings_admin_settings_backup_schedule_post",
+  "summary": "Set Global Backup Schedule Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/backup_notification",
+  "operationId": "retrieve_global_backup_notification_settings_admin_settings_backup_notification_get",
+  "summary": "Get Global Backup Notification Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_notification",
+  "operationId": "set_global_backup_notification_settings_admin_settings_backup_notification_post",
+  "summary": "Set Global Backup Notification Settings (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/smtp_configured",
+  "operationId": "check_smtp_configured_admin_settings_smtp_configured_get",
+  "summary": "Check if SMTP is configured (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/backup_logs",
+  "operationId": "retrieve_backup_execution_logs_admin_settings_backup_logs_get",
+  "summary": "List Backup Execution Logs (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_run",
+  "operationId": "trigger_manual_backup_run_admin_settings_backup_run_post",
+  "summary": "Trigger Manual Backup Run (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_logs/{log_id}/cancel",
+  "operationId": "cancel_running_backup_run_admin_settings_backup_logs__log_id__cancel_post",
+  "summary": "Cancel Running Backup Run (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "POST",
+  "path": "/admin/settings/backup_cleanup",
+  "operationId": "trigger_manual_backup_retention_cleanup_admin_settings_backup_cleanup_post",
+  "summary": "Trigger Retention Cleanup (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.global_config",
+  "method": "GET",
+  "path": "/admin/settings/n8n-credentials",
+  "operationId": "get_n8n_credentials_admin_settings_n8n_credentials_get",
+  "summary": "Get N8N Admin Credentials (Superadmin)",
+  "tag": "Admin - Global Configuration Settings"
+ },
+ {
+  "namespace": "admin.management",
+  "method": "POST",
+  "path": "/admin/organizations",
+  "operationId": "create_organization_admin_organizations_post",
+  "summary": "Create a new Organization (Superadmin)",
+  "tag": "Admin Management"
+ },
+ {
+  "namespace": "admin.management",
+  "method": "GET",
+  "path": "/admin/organizations",
+  "operationId": "list_organizations_admin_organizations_get",
+  "summary": "List all Organizations",
+  "tag": "Admin Management"
+ },
+ {
+  "namespace": "admin.management",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}",
+  "operationId": "get_organization_admin_organizations__org_uuid__get",
+  "summary": "Get a specific Organization",
+  "tag": "Admin Management"
+ },
+ {
+  "namespace": "admin.management",
+  "method": "PUT",
+  "path": "/admin/organizations/{org_uuid}",
+  "operationId": "update_organization_admin_organizations__org_uuid__put",
+  "summary": "Update an Organization",
+  "tag": "Admin Management"
+ },
+ {
+  "namespace": "admin.management",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}",
+  "operationId": "delete_organization_admin_organizations__org_uuid__delete",
+  "summary": "Delete an Organization",
+  "tag": "Admin Management"
+ },
+ {
+  "namespace": "organizations",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/users",
+  "operationId": "list_organization_users_admin_organizations__organization_uuid__users_get",
+  "summary": "List Users in an Organization",
+  "tag": "Organizations"
+ },
+ {
+  "namespace": "organizations",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/users",
+  "operationId": "admin_create_invite_user_admin_organizations__organization_uuid__users_post",
+  "summary": "Admin Invites/Creates a User in an Organization",
+  "tag": "Organizations"
+ },
+ {
+  "namespace": "users",
+  "method": "POST",
+  "path": "/admin/users/{user_uuid}/set-password",
+  "operationId": "admin_set_user_password_admin_users__user_uuid__set_password_post",
+  "summary": "Admin Sets/Resets a User's Password",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "GET",
+  "path": "/admin/users/{user_uuid}/auth-status",
+  "operationId": "admin_get_user_auth_status_admin_users__user_uuid__auth_status_get",
+  "summary": "Get User Authentication Status",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "PUT",
+  "path": "/admin/users/{user_uuid}/role",
+  "operationId": "admin_change_user_role_admin_users__user_uuid__role_put",
+  "summary": "Admin Changes a User's Role",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "DELETE",
+  "path": "/admin/users/{user_uuid}/roles/{role_name}",
+  "operationId": "admin_remove_user_role_admin_users__user_uuid__roles__role_name__delete",
+  "summary": "Admin Removes a Role from User",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "GET",
+  "path": "/admin/users/{user_uuid}/roles",
+  "operationId": "get_user_roles_admin_users__user_uuid__roles_get",
+  "summary": "Get User Roles",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "PUT",
+  "path": "/admin/users/{user_uuid}/info",
+  "operationId": "admin_edit_user_info_admin_users__user_uuid__info_put",
+  "summary": "Admin Edits User Information",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "PUT",
+  "path": "/admin/users/{user_uuid}/status",
+  "operationId": "admin_set_user_active_status_admin_users__user_uuid__status_put",
+  "summary": "Admin Disables or Enables a User Account",
+  "tag": "Users"
+ },
+ {
+  "namespace": "users",
+  "method": "DELETE",
+  "path": "/admin/users/{user_uuid}",
+  "operationId": "admin_delete_user_admin_users__user_uuid__delete",
+  "summary": "Admin Deletes a User Account",
+  "tag": "Users"
+ },
+ {
+  "namespace": "admin.user_api_keys",
+  "method": "POST",
+  "path": "/admin/users/{user_uuid}/api-keys",
+  "operationId": "create_user_api_key_admin_users__user_uuid__api_keys_post",
+  "summary": "Create API Key for User",
+  "tag": "Admin - User API Keys"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "GET",
+  "path": "/admin/users/{user_uuid}/api-keys",
+  "operationId": "get_user_api_keys_admin_users__user_uuid__api_keys_get",
+  "summary": "Get user's API keys (Admin)",
+  "tag": "API Keys"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "PATCH",
+  "path": "/admin/api-keys/{api_key_id}/status",
+  "operationId": "toggle_api_key_status_admin_api_keys__api_key_id__status_patch",
+  "summary": "Enable or disable an API key (Admin)",
+  "tag": "API Keys"
+ },
+ {
+  "namespace": "api_keys",
+  "method": "DELETE",
+  "path": "/admin/api-keys/{api_key_id}",
+  "operationId": "delete_user_api_key_admin_api_keys__api_key_id__delete",
+  "summary": "Delete an API key (Admin)",
+  "tag": "API Keys"
+ },
+ {
+  "namespace": "roles",
+  "method": "GET",
+  "path": "/admin/roles",
+  "operationId": "admin_list_all_roles_admin_roles_get",
+  "summary": "Admin Lists All Available Roles",
+  "tag": "Roles"
+ },
+ {
+  "namespace": "roles",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/roles",
+  "operationId": "list_organization_roles_admin_organizations__organization_uuid__roles_get",
+  "summary": "List Roles for a Specific Organization",
+  "tag": "Roles"
+ },
+ {
+  "namespace": "roles",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/roles",
+  "operationId": "create_organization_role_admin_organizations__organization_uuid__roles_post",
+  "summary": "Create a Role for a Specific Organization",
+  "tag": "Roles"
+ },
+ {
+  "namespace": "roles",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/roles/{role_id}",
+  "operationId": "delete_organization_role_admin_organizations__organization_uuid__roles__role_id__delete",
+  "summary": "Delete an Organization Role",
+  "tag": "Roles"
+ },
+ {
+  "namespace": "agents",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/agents",
+  "operationId": "list_organization_agents_admin_organizations__organization_uuid__agents_get",
+  "summary": "List All Agents in an Organization",
+  "tag": "Agents"
+ },
+ {
+  "namespace": "database_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/database_connectors",
+  "operationId": "_get_organization_database_connectors_admin_organizations__organization_uuid__database_connectors_get",
+  "summary": "List Database Connectors for Organization (Admin)",
+  "tag": "Database Connectors"
+ },
+ {
+  "namespace": "kb_connectors",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/kb_connectors",
+  "operationId": "_get_organization_kb_connectors_admin_organizations__organization_uuid__kb_connectors_get",
+  "summary": "List KB Connectors for Organization (Admin)",
+  "tag": "KB Connectors"
+ },
+ {
+  "namespace": "mcp_servers",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/mcp_servers",
+  "operationId": "_get_organization_mcp_servers_admin_organizations__organization_uuid__mcp_servers_get",
+  "summary": "List MCP Servers for Organization (Admin)",
+  "tag": "MCP Servers"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/organization_general",
+  "operationId": "set_organization_general_settings_admin_organizations__org_uuid__settings_organization_general_post",
+  "summary": "Set Organization General Settings (Superadmin)",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/organization_general",
+  "operationId": "retrieve_organization_general_settings_admin_organizations__org_uuid__settings_organization_general_get",
+  "summary": "Get Organization General Settings",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "PUT",
+  "path": "/admin/organizations/{org_uuid}/settings/domain_settings",
+  "operationId": "update_organization_domain_settings_admin_organizations__org_uuid__settings_domain_settings_put",
+  "summary": "Update Organization Domain Settings",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/domain_settings",
+  "operationId": "retrieve_organization_domain_settings_admin_organizations__org_uuid__settings_domain_settings_get",
+  "summary": "Get Organization Domain Settings",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_palette",
+  "operationId": "set_organization_brand_palette_admin_organizations__org_uuid__settings_brand_palette_post",
+  "summary": "Set Organization Brand Palette",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_palette",
+  "operationId": "retrieve_organization_brand_palette_admin_organizations__org_uuid__settings_brand_palette_get",
+  "summary": "Get Organization Brand Palette",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets",
+  "operationId": "retrieve_organization_brand_assets_admin_organizations__org_uuid__settings_brand_assets_get",
+  "summary": "Get Organization Brand Assets",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/square_logo",
+  "operationId": "set_org_square_logo_admin_organizations__org_uuid__settings_brand_assets_square_logo_post",
+  "summary": "Set Organization Square Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/square_logo",
+  "operationId": "delete_org_square_logo_admin_organizations__org_uuid__settings_brand_assets_square_logo_delete",
+  "summary": "Delete Organization Square Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_square_logo",
+  "operationId": "set_org_white_square_logo_admin_organizations__org_uuid__settings_brand_assets_white_square_logo_post",
+  "summary": "Set Organization White Square Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_square_logo",
+  "operationId": "delete_org_white_square_logo_admin_organizations__org_uuid__settings_brand_assets_white_square_logo_delete",
+  "summary": "Delete Organization White Square Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/extended_logo",
+  "operationId": "set_org_extended_logo_admin_organizations__org_uuid__settings_brand_assets_extended_logo_post",
+  "summary": "Set Organization Extended Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/extended_logo",
+  "operationId": "delete_org_extended_logo_admin_organizations__org_uuid__settings_brand_assets_extended_logo_delete",
+  "summary": "Delete Organization Extended Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_extended_logo",
+  "operationId": "set_org_white_extended_logo_admin_organizations__org_uuid__settings_brand_assets_white_extended_logo_post",
+  "summary": "Set Organization White Extended Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_extended_logo",
+  "operationId": "delete_org_white_extended_logo_admin_organizations__org_uuid__settings_brand_assets_white_extended_logo_delete",
+  "summary": "Delete Organization White Extended Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/login_page_logo",
+  "operationId": "set_org_login_page_logo_admin_organizations__org_uuid__settings_brand_assets_login_page_logo_post",
+  "summary": "Set Organization Login Page Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/login_page_logo",
+  "operationId": "delete_org_login_page_logo_admin_organizations__org_uuid__settings_brand_assets_login_page_logo_delete",
+  "summary": "Delete Organization Login Page Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_login_page_logo",
+  "operationId": "set_org_white_login_page_logo_admin_organizations__org_uuid__settings_brand_assets_white_login_page_logo_post",
+  "summary": "Set Organization White Login Page Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/white_login_page_logo",
+  "operationId": "delete_org_white_login_page_logo_admin_organizations__org_uuid__settings_brand_assets_white_login_page_logo_delete",
+  "summary": "Delete Organization White Login Page Logo",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/login_background_image",
+  "operationId": "set_org_login_background_image_admin_organizations__org_uuid__settings_brand_assets_login_background_image_post",
+  "summary": "Set Organization Login Background Image",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/login_background_image",
+  "operationId": "delete_org_login_background_image_admin_organizations__org_uuid__settings_brand_assets_login_background_image_delete",
+  "summary": "Delete Organization Login Background Image",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon",
+  "operationId": "set_org_favicon_admin_organizations__org_uuid__settings_brand_assets_favicon_post",
+  "summary": "Set Organization Favicon",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon",
+  "operationId": "delete_org_favicon_admin_organizations__org_uuid__settings_brand_assets_favicon_delete",
+  "summary": "Delete Organization Favicon",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon_16",
+  "operationId": "set_org_favicon_16_admin_organizations__org_uuid__settings_brand_assets_favicon_16_post",
+  "summary": "Set Organization Favicon 16x16",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon_16",
+  "operationId": "delete_org_favicon_16_admin_organizations__org_uuid__settings_brand_assets_favicon_16_delete",
+  "summary": "Delete Organization Favicon 16x16",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon_32",
+  "operationId": "set_org_favicon_32_admin_organizations__org_uuid__settings_brand_assets_favicon_32_post",
+  "summary": "Set Organization Favicon 32x32",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/favicon_32",
+  "operationId": "delete_org_favicon_32_admin_organizations__org_uuid__settings_brand_assets_favicon_32_delete",
+  "summary": "Delete Organization Favicon 32x32",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/apple_touch_icon",
+  "operationId": "set_org_apple_touch_icon_admin_organizations__org_uuid__settings_brand_assets_apple_touch_icon_post",
+  "summary": "Set Organization Apple Touch Icon",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "DELETE",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_assets/apple_touch_icon",
+  "operationId": "delete_org_apple_touch_icon_admin_organizations__org_uuid__settings_brand_assets_apple_touch_icon_delete",
+  "summary": "Delete Organization Apple Touch Icon",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_general",
+  "operationId": "set_organization_brand_general_admin_organizations__org_uuid__settings_brand_general_post",
+  "summary": "Set Organization Brand General Settings (Superadmin)",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/brand_general",
+  "operationId": "retrieve_organization_brand_general_admin_organizations__org_uuid__settings_brand_general_get",
+  "summary": "Get Organization Brand General Settings",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "POST",
+  "path": "/admin/organizations/{org_uuid}/settings/platform_capabilities",
+  "operationId": "set_organization_platform_capabilities_admin_organizations__org_uuid__settings_platform_capabilities_post",
+  "summary": "Set Organization Platform Capabilities",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "admin.org_config",
+  "method": "GET",
+  "path": "/admin/organizations/{org_uuid}/settings/platform_capabilities",
+  "operationId": "retrieve_organization_platform_capabilities_admin_organizations__org_uuid__settings_platform_capabilities_get",
+  "summary": "Get Organization Platform Capabilities (Superadmin)",
+  "tag": "Admin - Organization Specific Configuration Settings"
+ },
+ {
+  "namespace": "auth",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors",
+  "operationId": "create_sso_connector_admin_organizations__organization_uuid__sso_connectors_post",
+  "summary": "Create an SSO Connector for an Organization",
+  "tag": "SSO"
+ },
+ {
+  "namespace": "auth",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors",
+  "operationId": "list_sso_connectors_admin_organizations__organization_uuid__sso_connectors_get",
+  "summary": "List SSO Connectors for an Organization",
+  "tag": "SSO"
+ },
+ {
+  "namespace": "auth",
+  "method": "GET",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}",
+  "operationId": "get_sso_connector_admin_organizations__organization_uuid__sso_connectors__connector_uuid__get",
+  "summary": "Get a Specific SSO Connector for an Organization",
+  "tag": "SSO"
+ },
+ {
+  "namespace": "auth",
+  "method": "PUT",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}",
+  "operationId": "update_sso_connector_admin_organizations__organization_uuid__sso_connectors__connector_uuid__put",
+  "summary": "Update an SSO Connector for an Organization",
+  "tag": "SSO"
+ },
+ {
+  "namespace": "auth",
+  "method": "DELETE",
+  "path": "/admin/organizations/{organization_uuid}/sso-connectors/{connector_uuid}",
+  "operationId": "delete_sso_connector_admin_organizations__organization_uuid__sso_connectors__connector_uuid__delete",
+  "summary": "Delete an SSO Connector for an Organization",
+  "tag": "SSO"
+ },
+ {
+  "namespace": "admin.deployment",
+  "method": "POST",
+  "path": "/admin/organizations/{organization_uuid}/deploy-updates",
+  "operationId": "deploy_organization_updates_admin_organizations__organization_uuid__deploy_updates_post",
+  "summary": "Deploy Frontend Updates for Organization",
+  "tag": "Deployment"
+ },
+ {
+  "namespace": "notifications",
+  "method": "GET",
+  "path": "/notifications/{mode}/summary",
+  "operationId": "get_user_notifications_summary_notifications__mode__summary_get",
+  "summary": "Get notifications summary",
+  "tag": "Notifications"
+ },
+ {
+  "namespace": "notifications",
+  "method": "POST",
+  "path": "/notifications/mark-read",
+  "operationId": "mark_user_notifications_as_read_notifications_mark_read_post",
+  "summary": "Mark notifications as read",
+  "tag": "Notifications"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/platform-tickets/",
+  "operationId": "list_user_tickets_platform_tickets__get",
+  "summary": "Get current user's tickets",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "tickets",
+  "method": "POST",
+  "path": "/platform-tickets/",
+  "operationId": "create_user_ticket_platform_tickets__post",
+  "summary": "Create a new support ticket",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/platform-tickets/{ticket_uuid}",
+  "operationId": "get_user_ticket_detail_platform_tickets__ticket_uuid__get",
+  "summary": "Get ticket detail",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "tickets",
+  "method": "PUT",
+  "path": "/platform-tickets/{ticket_uuid}",
+  "operationId": "update_user_ticket_platform_tickets__ticket_uuid__put",
+  "summary": "Update ticket (user only)",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "tickets",
+  "method": "DELETE",
+  "path": "/platform-tickets/{ticket_uuid}",
+  "operationId": "delete_user_ticket_platform_tickets__ticket_uuid__delete",
+  "summary": "Delete a ticket",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "PUT",
+  "path": "/platform-tickets/admin/{ticket_uuid}/status",
+  "operationId": "update_ticket_status_admin_platform_tickets_admin__ticket_uuid__status_put",
+  "summary": "Update ticket status (Admin only)",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "tickets",
+  "method": "POST",
+  "path": "/platform-tickets/{ticket_uuid}/reply",
+  "operationId": "reply_to_ticket_as_user_platform_tickets__ticket_uuid__reply_post",
+  "summary": "Reply to a ticket as user",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "DELETE",
+  "path": "/platform-tickets/admin/{ticket_uuid}",
+  "operationId": "delete_ticket_admin_platform_tickets_admin__ticket_uuid__delete",
+  "summary": "Delete ticket as admin",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "GET",
+  "path": "/platform-tickets/admin/{ticket_uuid}",
+  "operationId": "get_ticket_detail_admin_platform_tickets_admin__ticket_uuid__get",
+  "summary": "Get ticket detail as admin",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "GET",
+  "path": "/platform-tickets/admin/all",
+  "operationId": "list_all_tickets_admin_platform_tickets_admin_all_get",
+  "summary": "Get all tickets (Admin only)",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "POST",
+  "path": "/platform-tickets/admin/{ticket_uuid}/reply",
+  "operationId": "admin_reply_ticket_platform_tickets_admin__ticket_uuid__reply_post",
+  "summary": "Reply to ticket as admin",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "tickets",
+  "method": "GET",
+  "path": "/platform-tickets/{ticket_uuid}/attachments/{attachment_uuid}",
+  "operationId": "download_user_ticket_attachment_platform_tickets__ticket_uuid__attachments__attachment_uuid__get",
+  "summary": "Download a ticket attachment",
+  "tag": "User Ticket Operations"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "GET",
+  "path": "/platform-tickets/admin/{ticket_uuid}/attachments/{attachment_uuid}",
+  "operationId": "download_admin_ticket_attachment_platform_tickets_admin__ticket_uuid__attachments__attachment_uuid__get",
+  "summary": "Download a ticket attachment (Admin)",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "admin.tickets",
+  "method": "GET",
+  "path": "/platform-tickets/admin/{ticket_uuid}/export",
+  "operationId": "export_ticket_conversation_platform_tickets_admin__ticket_uuid__export_get",
+  "summary": "Export ticket conversation (Admin only)",
+  "tag": "Admin Ticket Management"
+ },
+ {
+  "namespace": "notifications",
+  "method": "GET",
+  "path": "/platform-tickets/notifications/summary",
+  "operationId": "get_user_notifications_summary_platform_tickets_notifications_summary_get",
+  "summary": "Get notifications summary",
+  "tag": "Notifications"
+ },
+ {
+  "namespace": "notifications",
+  "method": "POST",
+  "path": "/platform-tickets/notifications/mark-read",
+  "operationId": "mark_user_notifications_as_read_platform_tickets_notifications_mark_read_post",
+  "summary": "Mark notifications as read",
+  "tag": "Notifications"
+ },
+ {
+  "namespace": "tts",
+  "method": "GET",
+  "path": "/tts-audio-samples/voices",
+  "operationId": "get_voices_tts_audio_samples_voices_get",
+  "summary": "Get Available Voices",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "GET",
+  "path": "/tts-audio-samples",
+  "operationId": "list_samples_tts_audio_samples_get",
+  "summary": "List Audio Samples",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "POST",
+  "path": "/tts-audio-samples",
+  "operationId": "upload_sample_tts_audio_samples_post",
+  "summary": "Upload Audio Sample",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "POST",
+  "path": "/tts-audio-samples/{sample_id}/transcribe",
+  "operationId": "transcribe_sample_ref_text_tts_audio_samples__sample_id__transcribe_post",
+  "summary": "Transcribe Audio Sample To Ref Text",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "PATCH",
+  "path": "/tts-audio-samples/{sample_id}/ref-text",
+  "operationId": "patch_sample_ref_text_tts_audio_samples__sample_id__ref_text_patch",
+  "summary": "Update Audio Sample Ref Text",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "GET",
+  "path": "/tts-audio-samples/{sample_id}",
+  "operationId": "get_sample_file_tts_audio_samples__sample_id__get",
+  "summary": "Download Audio Sample",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "tts",
+  "method": "DELETE",
+  "path": "/tts-audio-samples/{sample_id}",
+  "operationId": "delete_sample_tts_audio_samples__sample_id__delete",
+  "summary": "Delete Audio Sample",
+  "tag": "Audio Sample Management"
+ },
+ {
+  "namespace": "shield",
+  "method": "GET",
+  "path": "/shield/",
+  "operationId": "_list_shields_shield__get",
+  "summary": "List all shields",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "GET",
+  "path": "/shield/{shield_uuid}",
+  "operationId": "_get_shield_shield__shield_uuid__get",
+  "summary": "Get shield by UUID",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "PUT",
+  "path": "/shield/{shield_uuid}",
+  "operationId": "_update_shield_shield__shield_uuid__put",
+  "summary": "Update an existing shield",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "DELETE",
+  "path": "/shield/{shield_uuid}",
+  "operationId": "_delete_shield_shield__shield_uuid__delete",
+  "summary": "Delete a shield",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "POST",
+  "path": "/shield",
+  "operationId": "_create_shield_shield_post",
+  "summary": "Create a new shield",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "POST",
+  "path": "/shield/{shield_uuid}/attach/organization/{organization_uuid}",
+  "operationId": "_attach_organization_to_shield_shield__shield_uuid__attach_organization__organization_uuid__post",
+  "summary": "Attach an organization to a shield",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "POST",
+  "path": "/shield/{shield_uuid}/attach/agent/{agent_uuid}",
+  "operationId": "_attach_agent_to_shield_shield__shield_uuid__attach_agent__agent_uuid__post",
+  "summary": "Attach an agent to a shield",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "GET",
+  "path": "/shield/organization/{organization_uuid}",
+  "operationId": "_get_shield_for_organization_shield_organization__organization_uuid__get",
+  "summary": "Get shield attached to an organization",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "shield",
+  "method": "GET",
+  "path": "/shield/agent/{agent_uuid}",
+  "operationId": "_get_shield_for_agent_shield_agent__agent_uuid__get",
+  "summary": "Get shield attached to an agent",
+  "tag": "Shield"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces",
+  "operationId": "get_traces_observability_traces_get",
+  "summary": "List traces",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/export.csv",
+  "operationId": "export_traces_observability_traces_export_csv_get",
+  "summary": "Export traces as CSV",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/{trace_id}",
+  "operationId": "get_trace_by_id_observability_traces__trace_id__get",
+  "summary": "Get a single trace by ID",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/{trace_id}/observations",
+  "operationId": "get_trace_observations_observability_traces__trace_id__observations_get",
+  "summary": "List observations for a trace",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/{trace_id}/observations/export.csv",
+  "operationId": "export_observations_observability_traces__trace_id__observations_export_csv_get",
+  "summary": "Export observations for a trace as CSV",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "POST",
+  "path": "/observability/traces/{trace_id}/reads",
+  "operationId": "post_trace_read_observability_traces__trace_id__reads_post",
+  "summary": "Audit a trace read (sensitive content viewed)",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/{trace_id}/reads",
+  "operationId": "get_trace_reads_observability_traces__trace_id__reads_get",
+  "summary": "List audit events for a trace read",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/traces/{trace_id}/reads/export.csv",
+  "operationId": "export_reads_observability_traces__trace_id__reads_export_csv_get",
+  "summary": "Export trace read audit as CSV",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/overview",
+  "operationId": "metrics_overview_observability_metrics_overview_get",
+  "summary": "Metrics overview",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/agents",
+  "operationId": "top_agents_observability_metrics_agents_get",
+  "summary": "Top agents by usage",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/users",
+  "operationId": "top_users_observability_metrics_users_get",
+  "summary": "Top users by usage",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/tools",
+  "operationId": "top_tools_observability_metrics_tools_get",
+  "summary": "Top tools by usage",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/models",
+  "operationId": "models_usage_observability_metrics_models_get",
+  "summary": "Model usage breakdown",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/guardrail/filters",
+  "operationId": "guardrail_filters_observability_metrics_guardrail_filters_get",
+  "summary": "Guardrail filter hits",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/shield/tokens_daily",
+  "operationId": "shield_tokens_daily_observability_metrics_shield_tokens_daily_get",
+  "summary": "Shield tokens daily series",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
+  "path": "/observability/metrics/rag/similarity",
+  "operationId": "rag_similarity_observability_metrics_rag_similarity_get",
+  "summary": "RAG retrieval similarity",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "admin.frontend",
+  "method": "GET",
+  "path": "/frontend/config/{org_uuid}",
+  "operationId": "get_frontend_configuration_frontend_config__org_uuid__get",
+  "summary": "Get frontend configuration for an organization",
+  "tag": "Frontend"
+ },
+ {
+  "namespace": "release_notes",
+  "method": "GET",
+  "path": "/release-notes/unseen",
+  "operationId": "get_unseen_release_notes_release_notes_unseen_get",
+  "summary": "Get unseen release notes",
+  "tag": "Release Notes"
+ },
+ {
+  "namespace": "release_notes",
+  "method": "POST",
+  "path": "/release-notes/seen",
+  "operationId": "mark_release_notes_seen_release_notes_seen_post",
+  "summary": "Mark release notes as seen",
+  "tag": "Release Notes"
+ }
+]

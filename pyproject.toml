@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "galene-ai"
+version = "1.0.0"
+description = "Python SDK for the Galene.AI platform"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Pinto", email = "daniel.pinto@setwin.pt" }]
+keywords = ["galene", "llm", "openai-compatible", "sdk"]
+dependencies = ["httpx>=0.28", "msgspec>=0.19"]
+
+[project.optional-dependencies]
+dev = [
+  "datamodel-code-generator>=0.28",
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "pytest-cov>=5",
+  "ruff>=0.6",
+  "mypy>=1.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/setwin/galene-ai"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/galene_ai"]
+
+# The published distribution ships ONLY the importable library (+ metadata files).
+# tests/, docs/, examples/, scripts/, spec/, .github/ and dev scratch are excluded
+# from both the wheel and the sdist.
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/galene_ai",
+  "README.md",
+  "LICENSE",
+  "CHANGELOG.md",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-m 'not live'"
+markers = [
+  "live: integration test that hits a real Galene backend (needs GALENE_API_KEY; deselected by default, run via `make test-live`)",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Generated file (never hand-edited): datamodel-codegen's `ruff-format`
+# formatter step formats but does not lint-fix, so long OpenAPI `description`
+# strings (E501) and import grouping (I001) routinely fail lint. Excluded
+# from lint rules only; `ruff format --check` still passes on this file.
+"src/galene_ai/models/_generated.py" = ["E501", "I001"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["galene_ai"]
+
+[[tool.mypy.overrides]]
+# datamodel-codegen (msgspec.Struct output) emits bare string literals as
+# default values for enum-typed fields (e.g. `= "table"` for a field typed
+# `ObjectType | UnsetType`) instead of the enum member. This is a generator
+# limitation (see --set-default-enum-member, not used because the generation
+# command is specified verbatim by the task brief), not a hand-editable bug.
+# Relax only the `assignment` check for the generated module; the rest of
+# the package (including this module's other strict checks) stays strict.
+module = "galene_ai.models._generated"
+disable_error_code = ["assignment"]

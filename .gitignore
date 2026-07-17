@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+# Env
+.env
+.env.*
+!.env.example
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+# SDD scratch
+.superpowers/
+uv.lock
+# scripts/probe_shapes.py output (dev-only, hits a live backend)
+probe_output/
