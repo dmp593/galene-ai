@@ -275,6 +275,24 @@ def test_shield_tokens_daily_decodes_list():
     assert items[0].shield_tokens == 3
 
 
+def test_active_users_daily_decodes_list():
+    def handler(req: httpx.Request) -> httpx.Response:
+        assert req.url.path == "/observability/metrics/active-users-daily"
+        assert req.url.params["organization_id"] == "org1"
+        assert req.url.params["from_ts"] == "2026-01-01T00:00:00Z"
+        return httpx.Response(
+            200,
+            json=[{"day": "2026-01-01T00:00:00Z", "active_users": 4, "traces": 12}],
+        )
+
+    items = _client(handler).observability.active_users_daily(
+        organization_id="org1", from_ts="2026-01-01T00:00:00Z"
+    )
+    assert items[0].day == "2026-01-01T00:00:00Z"
+    assert items[0].active_users == 4
+    assert items[0].traces == 12
+
+
 def test_rag_similarity_decodes_list():
     def handler(req: httpx.Request) -> httpx.Response:
         assert req.url.path == "/observability/metrics/rag/similarity"

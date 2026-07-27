@@ -117,6 +117,94 @@ def test_list_files_omits_purpose_param_when_not_given():
     assert page.data == []
 
 
+def test_list_files_sends_cursor_params_and_decodes_created_at():
+    def handler(req: httpx.Request) -> httpx.Response:
+        assert req.method == "GET"
+        assert req.url.path == "/v1/files"
+        assert req.url.params["purpose"] == "user_data"
+        assert req.url.params["after"] == "f0"
+        assert req.url.params["before"] == "f9"
+        assert req.url.params["limit"] == "50"
+        assert req.url.params["order"] == "asc"
+        return httpx.Response(
+            200,
+            json={
+                "data": [
+                    {
+                        "id": "f1",
+                        "object": "file",
+                        "filename": "a.txt",
+                        "purpose": "user_data",
+                        "bytes": 3,
+                        "created_at": 1699564800,
+                    }
+                ],
+                "object": "list",
+                "has_more": False,
+            },
+        )
+
+    page = _client(handler).files.list(
+        purpose="user_data", after="f0", before="f9", limit=50, order="asc"
+    )
+    assert [f.id for f in page] == ["f1"]
+    assert page.data[0].created_at == 1699564800
+    assert page.has_more is False
+    assert page.last_id == "f1"
+
+
+def test_list_files_auto_paging_iter_walks_pages_via_after_cursor():
+    seen_after: list[str | None] = []
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        after = req.url.params.get("after")
+        seen_after.append(after)
+        if after is None:
+            return httpx.Response(
+                200,
+                json={
+                    "data": [
+                        {"id": "f1", "object": "file", "filename": "a", "purpose": "p", "bytes": 1},
+                        {"id": "f2", "object": "file", "filename": "b", "purpose": "p", "bytes": 1},
+                    ],
+                    "object": "list",
+                    "has_more": True,
+                },
+            )
+        # Second page must start after the last id of the first page.
+        assert after == "f2"
+        return httpx.Response(
+            200,
+            json={
+                "data": [
+                    {"id": "f3", "object": "file", "filename": "c", "purpose": "p", "bytes": 1},
+                ],
+                "object": "list",
+                "has_more": False,
+            },
+        )
+
+    ids = [f.id for f in _client(handler).files.list().auto_paging_iter()]
+    assert ids == ["f1", "f2", "f3"]
+    assert seen_after == [None, "f2"]
+
+
+def test_list_files_auto_paging_terminates_on_empty_page_claiming_has_more():
+    # A server that returns has_more=True with an empty data page must not send
+    # the SDK into an infinite `after=None` re-fetch loop.
+    calls = 0
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        nonlocal calls
+        calls += 1
+        return httpx.Response(200, json={"data": [], "object": "list", "has_more": True})
+
+    page = _client(handler).files.list()
+    assert page.has_more is False  # no cursor -> not advertised as pageable
+    assert list(page.auto_paging_iter()) == []
+    assert calls == 1  # fetched once, did not loop
+
+
 def test_retrieve_file_hits_endpoint_and_decodes():
     def handler(req: httpx.Request) -> httpx.Response:
         assert req.method == "GET"
@@ -219,5 +307,39 @@ async def test_async_files_retrieve_smoke():
         result = await client.files.retrieve("f9")
         assert result.id == "f9"
         assert result.filename == "z.txt"
+    finally:
+        await client.aclose()
+
+
+async def test_async_list_files_auto_pages_via_after_cursor():
+    def handler(req: httpx.Request) -> httpx.Response:
+        after = req.url.params.get("after")
+        if after is None:
+            return httpx.Response(
+                200,
+                json={
+                    "data": [
+                        {"id": "f1", "object": "file", "filename": "a", "purpose": "p", "bytes": 1}
+                    ],
+                    "object": "list",
+                    "has_more": True,
+                },
+            )
+        assert after == "f1"
+        return httpx.Response(
+            200,
+            json={
+                "data": [
+                    {"id": "f2", "object": "file", "filename": "b", "purpose": "p", "bytes": 1}
+                ],
+                "object": "list",
+                "has_more": False,
+            },
+        )
+
+    client = _aclient(handler)
+    try:
+        ids = [f.id async for f in await client.files.list()]
+        assert ids == ["f1", "f2"]
     finally:
         await client.aclose()

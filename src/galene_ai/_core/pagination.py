@@ -18,7 +18,13 @@ class CursorPage[T]:
         page: CursorPage[T] | None = self
         while page is not None:
             yield from page.data
-            page = page._fetch(page.last_id) if page.has_more else None
+            # Stop when the server claims more but hands us no cursor to advance
+            # (e.g. `has_more=True` with an empty page): re-fetching the same
+            # `last_id` would loop forever.
+            if page.has_more and page.last_id is not None:
+                page = page._fetch(page.last_id)
+            else:
+                page = None
 
 
 @dataclass
@@ -51,7 +57,11 @@ class AsyncCursorPage[T]:
         while page is not None:
             for item in page.data:
                 yield item
-            page = await page._fetch(page.last_id) if page.has_more else None
+            # See `CursorPage.auto_paging_iter`: never re-fetch without a cursor.
+            if page.has_more and page.last_id is not None:
+                page = await page._fetch(page.last_id)
+            else:
+                page = None
 
 
 @dataclass

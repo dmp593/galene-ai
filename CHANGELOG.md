@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.1.0]
+Tracks a backward-compatible Galene.AI API update (the backend still reports
+`info.version` `1.0.0`, so `__api_version__` is unchanged; the vendored
+`spec/openapi.json` is refreshed). Operation coverage grows from 316 to 317.
+
+- **`files.list` is now genuinely cursor-paginated.** The `/v1/files` endpoint
+  gained `after` / `before` / `limit` (1–100, default 20) / `order`
+  (`asc` / `desc`, default `desc`) query parameters, surfaced as new keyword
+  arguments on `Files.list` / `AsyncFiles.list`. The returned
+  `CursorPage[File]` / `AsyncCursorPage[File]` now advances via the last file
+  id, so `.auto_paging_iter()` (sync) and `async for` (async) walk every page
+  instead of repeatedly re-fetching a single page. Existing calls
+  (`client.files.list()` / `client.files.list(purpose=...)`) keep working
+  unchanged.
+- **`File` now carries `created_at`.** `/v1/files` list items include a
+  `created_at` (Unix epoch seconds) field; it is exposed on the `File` model as
+  an optional int (still required on the single-file `FileMetadata` shape).
+- **New `observability.active_users_daily(...)`** wraps the new
+  `GET /observability/metrics/active-users-daily` endpoint, returning
+  `list[ActiveUsersDailyPoint]` (one point per UTC day with `active_users` and
+  `traces`). Mirrors the existing daily-series metrics methods. Note: verified
+  live, the backend (like the sibling daily-series endpoints) returns HTTP 500
+  when the `from_ts`/`to_ts` window is omitted despite the spec marking both
+  optional, so the method docstring recommends always passing a window.
+- **Cursor auto-paging is now loop-safe.** `CursorPage.auto_paging_iter()` /
+  `AsyncCursorPage.__aiter__` stop when a response claims `has_more=True` but
+  carries no cursor to advance (e.g. an empty final page), instead of
+  re-fetching the same cursor forever. Applies to every cursor-paginated
+  namespace (`files`, `vector_stores`).
+
 ## [1.0.0]
 Initial release.
 

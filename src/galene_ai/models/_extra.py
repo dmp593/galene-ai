@@ -49,9 +49,15 @@ class File(msgspec.Struct):
     filename: str
     purpose: str
     bytes: int
+    # `/v1/files` list items carry `created_at` (Unix epoch seconds) as of the
+    # paginated Files API; older backends omitted it, so it stays optional here.
+    created_at: int | None = None
 
 
 class FileMetadata(File):
+    # `GET /v1/files/{id}` always includes `created_at`, so it is required on
+    # the single-file metadata shape (this re-declaration narrows the optional
+    # base field to a required one).
     created_at: int
 
 

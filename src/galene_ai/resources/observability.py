@@ -25,6 +25,7 @@ from typing import ClassVar, cast
 from galene_ai._client import AsyncGalene, Galene
 from galene_ai._core.resource import AsyncResource, SyncResource, operation
 from galene_ai.models._generated import (
+    ActiveUsersDailyPoint,
     AuditItem,
     BodyExportObservationsObservabilityTracesTraceIdObservationsExportCsvGet,
     BodyExportTracesObservabilityTracesExportCsvGet,
@@ -444,6 +445,33 @@ class Observability(SyncResource):
                     "to_ts": to_ts,
                 },
                 cast_to=list[ShieldSeriesPoint],
+            ),
+        )
+
+    @operation("active_users_daily_observability_metrics_active_users_daily_get")
+    def active_users_daily(
+        self,
+        *,
+        organization_id: str,
+        from_ts: str | None = None,
+        to_ts: str | None = None,
+    ) -> list[ActiveUsersDailyPoint]:
+        """Daily active users (one point per UTC day, ascending).
+
+        Pass an explicit `from_ts`/`to_ts` window: verified live, this backend
+        (like the sibling daily-series metrics) returns HTTP 500 when the time
+        window is omitted, even though the spec marks both bounds optional.
+        """
+        return cast(
+            list[ActiveUsersDailyPoint],
+            self._client.get(
+                "/observability/metrics/active-users-daily",
+                params={
+                    "organization_id": organization_id,
+                    "from_ts": from_ts,
+                    "to_ts": to_ts,
+                },
+                cast_to=list[ActiveUsersDailyPoint],
             ),
         )
 
@@ -874,6 +902,33 @@ class AsyncObservability(AsyncResource):
                     "to_ts": to_ts,
                 },
                 cast_to=list[ShieldSeriesPoint],
+            ),
+        )
+
+    @operation("active_users_daily_observability_metrics_active_users_daily_get")
+    async def active_users_daily(
+        self,
+        *,
+        organization_id: str,
+        from_ts: str | None = None,
+        to_ts: str | None = None,
+    ) -> list[ActiveUsersDailyPoint]:
+        """Daily active users (one point per UTC day, ascending).
+
+        Pass an explicit `from_ts`/`to_ts` window: verified live, this backend
+        (like the sibling daily-series metrics) returns HTTP 500 when the time
+        window is omitted, even though the spec marks both bounds optional.
+        """
+        return cast(
+            list[ActiveUsersDailyPoint],
+            await self._client.get(
+                "/observability/metrics/active-users-daily",
+                params={
+                    "organization_id": organization_id,
+                    "from_ts": from_ts,
+                    "to_ts": to_ts,
+                },
+                cast_to=list[ActiveUsersDailyPoint],
             ),
         )
 

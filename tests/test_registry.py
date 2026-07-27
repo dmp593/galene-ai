@@ -15,4 +15,4 @@ def test_registry_covers_all_operations():
     }
     reg_ids = {row["operationId"] for row in ops}
     assert reg_ids == spec_ids
-    assert len(ops) == 316
+    assert len(ops) == 317

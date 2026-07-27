@@ -1,7 +1,7 @@
 # galene-ai
 
 Python SDK for the [Galene.AI](https://api.playground.galene.ai) platform — a single,
-typed client covering all 316 REST operations of the API, generated and
+typed client covering all 317 REST operations of the API, generated and
 hand-crafted from the vendored OpenAPI spec (`spec/openapi.json`).
 
 - **Familiar ergonomics** — `client.chat.create(...)`, `client.files.upload(...)`,

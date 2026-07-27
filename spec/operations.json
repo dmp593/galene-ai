@@ -2498,6 +2498,14 @@
  {
   "namespace": "observability",
   "method": "GET",
+  "path": "/observability/metrics/active-users-daily",
+  "operationId": "active_users_daily_observability_metrics_active_users_daily_get",
+  "summary": "Daily active users",
+  "tag": "Observability"
+ },
+ {
+  "namespace": "observability",
+  "method": "GET",
   "path": "/observability/metrics/rag/similarity",
   "operationId": "rag_similarity_observability_metrics_rag_similarity_get",
   "summary": "RAG retrieval similarity",

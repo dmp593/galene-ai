@@ -33,7 +33,7 @@ from galene_ai.errors import (
     UnprocessableEntityError,
 )
 
-__version__ = "0.1.0"
+__version__ = "1.1.0"
 __api_version__ = "1.0.0"  # kept in sync with spec/VERSION
 
 __all__ = [

@@ -75,19 +75,50 @@ class Files(SyncResource):
         )
 
     @operation("_list_files_v1_files_get")
-    def list(self, *, purpose: str | None = None) -> CursorPage[File]:
-        """List files."""
+    def list(
+        self,
+        *,
+        purpose: str | None = None,
+        after: str | None = None,
+        before: str | None = None,
+        limit: int | None = None,
+        order: str | None = None,
+    ) -> CursorPage[File]:
+        """List files (cursor-paginated).
+
+        `/v1/files` pages by `file_id` cursor: pass `after`/`before` to page
+        forward/backward, `limit` (1–100, default 20) for the page size, and
+        `order` (`"asc"`/`"desc"` by creation time, default `"desc"`). The
+        returned `CursorPage` exposes `.auto_paging_iter()` to walk every page.
+        Auto-paging always walks forward via `after`; `before` selects a single
+        bounded page and is not followed by `.auto_paging_iter()`.
+        """
         page: FileList = self._client.get(
-            "/v1/files", params={"purpose": purpose}, cast_to=FileList
+            "/v1/files",
+            params={
+                "purpose": purpose,
+                "after": after,
+                "before": before,
+                "limit": limit,
+                "order": order,
+            },
+            cast_to=FileList,
         )
+        # The Files API returns no cursor field; the next page starts after the
+        # last file id on this page (used by `CursorPage.auto_paging_iter`).
+        last_id = page.data[-1].id if page.data else None
 
-        def _fetch(_after: str | None) -> CursorPage[File]:
-            # `/v1/files` takes no cursor parameter and always returns everything in a
-            # single page (`has_more` is never true in practice); re-fetching just
-            # repeats the same request, kept only to satisfy the `CursorPage` interface.
-            return self.list(purpose=purpose)
+        def _fetch(cursor: str | None) -> CursorPage[File]:
+            return self.list(purpose=purpose, after=cursor, limit=limit, order=order)
 
-        return CursorPage(data=page.data, has_more=bool(page.has_more), last_id=None, _fetch=_fetch)
+        # Never advertise more pages without a cursor to reach them, so
+        # `.auto_paging_iter()` can't spin on an empty `has_more=True` response.
+        return CursorPage(
+            data=page.data,
+            has_more=bool(page.has_more) and last_id is not None,
+            last_id=last_id,
+            _fetch=_fetch,
+        )
 
     @operation("_retrieve_file_v1_files__file_id__get")
     def retrieve(self, file_id: str) -> FileMetadata:
@@ -145,17 +176,47 @@ class AsyncFiles(AsyncResource):
         )
 
     @operation("_list_files_v1_files_get")
-    async def list(self, *, purpose: str | None = None) -> AsyncCursorPage[File]:
-        """List files."""
+    async def list(
+        self,
+        *,
+        purpose: str | None = None,
+        after: str | None = None,
+        before: str | None = None,
+        limit: int | None = None,
+        order: str | None = None,
+    ) -> AsyncCursorPage[File]:
+        """List files (cursor-paginated).
+
+        `/v1/files` pages by `file_id` cursor: pass `after`/`before` to page
+        forward/backward, `limit` (1–100, default 20) for the page size, and
+        `order` (`"asc"`/`"desc"` by creation time, default `"desc"`). The
+        returned `AsyncCursorPage` supports `async for` over every page.
+        Auto-paging always walks forward via `after`; `before` selects a single
+        bounded page and is not followed when iterating.
+        """
         page: FileList = await self._client.get(
-            "/v1/files", params={"purpose": purpose}, cast_to=FileList
+            "/v1/files",
+            params={
+                "purpose": purpose,
+                "after": after,
+                "before": before,
+                "limit": limit,
+                "order": order,
+            },
+            cast_to=FileList,
         )
+        last_id = page.data[-1].id if page.data else None
 
-        async def _fetch(_after: str | None) -> AsyncCursorPage[File]:
-            return await self.list(purpose=purpose)
+        async def _fetch(cursor: str | None) -> AsyncCursorPage[File]:
+            return await self.list(purpose=purpose, after=cursor, limit=limit, order=order)
 
+        # Never advertise more pages without a cursor to reach them (see the
+        # sync `list`), so `async for` can't spin on an empty `has_more=True`.
         return AsyncCursorPage(
-            data=page.data, has_more=bool(page.has_more), last_id=None, _fetch=_fetch
+            data=page.data,
+            has_more=bool(page.has_more) and last_id is not None,
+            last_id=last_id,
+            _fetch=_fetch,
         )
 
     @operation("_retrieve_file_v1_files__file_id__get")

@@ -18,5 +18,5 @@ def test_no_method_maps_to_unknown_operation():
 
 
 def test_every_operation_is_implemented():
-    # All 316 spec operations must have a resource method (and vice versa).
+    # All 317 spec operations must have a resource method (and vice versa).
     assert iter_implemented_operation_ids(Galene) == _expected()
