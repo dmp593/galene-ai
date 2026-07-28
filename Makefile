@@ -61,11 +61,11 @@ build: clean  ## Build the wheel + sdist into dist/
 
 publish: build  ## Upload dist/* to PyPI (needs PYPI_TOKEN in .env or the environment)
 	@test -n "$(PYPI_TOKEN)" || { echo "PYPI_TOKEN not set. Add it to .env — get one at https://pypi.org/manage/account/token/"; exit 1; }
-	uv publish --token "$(PYPI_TOKEN)"
+	@uv publish --token "$(PYPI_TOKEN)"  # @ so make doesn't echo the token
 
 publish-test: build  ## Upload dist/* to TestPyPI (needs TEST_PYPI_TOKEN in .env or the environment)
 	@test -n "$(TEST_PYPI_TOKEN)" || { echo "TEST_PYPI_TOKEN not set. Add it to .env — get one at https://test.pypi.org/manage/account/token/"; exit 1; }
-	uv publish --publish-url https://test.pypi.org/legacy/ --token "$(TEST_PYPI_TOKEN)"
+	@uv publish --publish-url https://test.pypi.org/legacy/ --token "$(TEST_PYPI_TOKEN)"  # @ so make doesn't echo the token
 
 clean:  ## Remove build artifacts and tool caches
 	rm -rf dist build ./*.egg-info src/*.egg-info
