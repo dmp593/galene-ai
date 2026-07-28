@@ -26,7 +26,11 @@ Requires Python 3.12+.
 
 ```python
 from galene_ai import Galene
-from galene_ai.models._generated import VectorStoreCreate, VectorStoreFileAdd, VectorStoreSearchRequest
+from galene_ai.models._generated import (
+    VectorStoreCreate,
+    VectorStoreFileAdd,
+    VectorStoreSearchRequest,
+)
 
 client = Galene(api_key="sk-...")  # or set GALENE_AI_API_KEY in the environment
 
@@ -66,8 +70,8 @@ variable:
 ```python
 from galene_ai import Galene
 
-client = Galene(api_key="sk-...")   # explicit
-client = Galene()                   # reads GALENE_AI_API_KEY from the environment
+client = Galene(api_key="sk-...")  # explicit
+client = Galene()  # reads GALENE_AI_API_KEY from the environment
 ```
 
 Environment variables:

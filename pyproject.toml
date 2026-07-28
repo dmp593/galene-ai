@@ -14,12 +14,17 @@ keywords = ["galene", "llm", "openai-compatible", "sdk"]
 dependencies = ["httpx>=0.28", "msgspec>=0.19"]
 
 [project.optional-dependencies]
+# `uv.lock` is intentionally gitignored, so CI resolves dev tools fresh on every
+# run. `ruff` and `datamodel-code-generator` feed byte-exact CI gates
+# (`ruff format --check .` and the models-fresh regenerate-and-diff), so their
+# output must be reproducible — pin them exactly and bump deliberately. The rest
+# stay on floors since they only need to pass, not produce identical bytes.
 dev = [
-  "datamodel-code-generator>=0.28",
+  "datamodel-code-generator==0.68.1",
   "pytest>=8",
   "pytest-asyncio>=0.24",
   "pytest-cov>=5",
-  "ruff>=0.6",
+  "ruff==0.16.0",
   "mypy>=1.11",
 ]
 

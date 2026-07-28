@@ -31,6 +31,9 @@ def main() -> None:
             "--use-annotated",
             "--use-standard-collections",
             "--use-union-operator",
+            # No generation timestamp in the header — otherwise the committed file
+            # never matches a fresh run and the models-fresh CI job always fails.
+            "--disable-timestamp",
             "--formatters",
             "ruff-format",
         ],
