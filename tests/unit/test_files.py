@@ -189,6 +189,33 @@ def test_list_files_auto_paging_iter_walks_pages_via_after_cursor():
     assert seen_after == [None, "f2"]
 
 
+def test_list_files_auto_paging_preserves_before_bound():
+    # Continuation must keep the caller's `before` bound (matching
+    # vector_stores.list), not silently drop it and walk past the window.
+    seen = []
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        seen.append(dict(req.url.params))
+        after = req.url.params.get("after")
+        if after is None:
+            return httpx.Response(
+                200,
+                json={
+                    "data": [
+                        {"id": "f1", "object": "file", "filename": "a", "purpose": "p", "bytes": 1}
+                    ],
+                    "object": "list",
+                    "has_more": True,
+                },
+            )
+        return httpx.Response(200, json={"data": [], "object": "list", "has_more": False})
+
+    list(_client(handler).files.list(before="f9", order="asc").auto_paging_iter())
+    assert seen[0].get("before") == "f9" and "after" not in seen[0]
+    # the follow-up request advances via `after` but STILL carries `before`
+    assert seen[1].get("after") == "f1" and seen[1].get("before") == "f9"
+
+
 def test_list_files_auto_paging_terminates_on_empty_page_claiming_has_more():
     # A server that returns has_more=True with an empty data page must not send
     # the SDK into an infinite `after=None` re-fetch loop.

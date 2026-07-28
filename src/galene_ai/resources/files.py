@@ -89,9 +89,8 @@ class Files(SyncResource):
         `/v1/files` pages by `file_id` cursor: pass `after`/`before` to page
         forward/backward, `limit` (1–100, default 20) for the page size, and
         `order` (`"asc"`/`"desc"` by creation time, default `"desc"`). The
-        returned `CursorPage` exposes `.auto_paging_iter()` to walk every page.
-        Auto-paging always walks forward via `after`; `before` selects a single
-        bounded page and is not followed by `.auto_paging_iter()`.
+        returned `CursorPage` exposes `.auto_paging_iter()`, which walks forward
+        from this page via the `after` cursor, preserving any `before` bound.
         """
         page: FileList = self._client.get(
             "/v1/files",
@@ -109,7 +108,7 @@ class Files(SyncResource):
         last_id = page.data[-1].id if page.data else None
 
         def _fetch(cursor: str | None) -> CursorPage[File]:
-            return self.list(purpose=purpose, after=cursor, limit=limit, order=order)
+            return self.list(purpose=purpose, after=cursor, before=before, limit=limit, order=order)
 
         # Never advertise more pages without a cursor to reach them, so
         # `.auto_paging_iter()` can't spin on an empty `has_more=True` response.
@@ -190,9 +189,8 @@ class AsyncFiles(AsyncResource):
         `/v1/files` pages by `file_id` cursor: pass `after`/`before` to page
         forward/backward, `limit` (1–100, default 20) for the page size, and
         `order` (`"asc"`/`"desc"` by creation time, default `"desc"`). The
-        returned `AsyncCursorPage` supports `async for` over every page.
-        Auto-paging always walks forward via `after`; `before` selects a single
-        bounded page and is not followed when iterating.
+        returned `AsyncCursorPage` supports `async for`, which walks forward from
+        this page via the `after` cursor, preserving any `before` bound.
         """
         page: FileList = await self._client.get(
             "/v1/files",
@@ -208,7 +206,9 @@ class AsyncFiles(AsyncResource):
         last_id = page.data[-1].id if page.data else None
 
         async def _fetch(cursor: str | None) -> AsyncCursorPage[File]:
-            return await self.list(purpose=purpose, after=cursor, limit=limit, order=order)
+            return await self.list(
+                purpose=purpose, after=cursor, before=before, limit=limit, order=order
+            )
 
         # Never advertise more pages without a cursor to reach them (see the
         # sync `list`), so `async for` can't spin on an empty `has_more=True`.
